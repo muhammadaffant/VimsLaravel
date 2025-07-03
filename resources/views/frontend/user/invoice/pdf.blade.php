@@ -53,7 +53,7 @@
             <td align="right">
                 <pre>
                 Viary Store
-                Email : viastore12@gmail.com <br>
+                Email : viastores12@gmail.com <br>
                 Phone : 085701297321 <br>
 
             </pre>

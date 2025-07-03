@@ -86,7 +86,7 @@
                             <div class="card-body">
                                 <h5><i class="fas fa-envelope"></i> Email</h5>
                                 <p class="mb-0">
-                                    <a href="mailto:info@contoh.com" class="text-dark">via12@gmail.com</a>
+                                    <a href="mailto:info@contoh.com" class="text-dark">viastores12@gmail.com</a>
                                 </p>
                             </div>
                         </div>

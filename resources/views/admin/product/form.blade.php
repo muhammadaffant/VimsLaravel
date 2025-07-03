@@ -134,15 +134,26 @@
             </div>
         </div>
 
+        <!-- Upload Gambar Produk -->
         <div class="col-md-12 col-12">
             <div class="form-group">
-                <label for="photo_name">Upload Gambar Produk</label>
-                <input type="file" class="form-control photo_name" name="photo_name[]" id="photo_name"
-                    accept="image/*" multiple onchange="previewMultipleImages(this)">
-                <br>
-                <div id="imagePreviewContainer"></div>
+                <label>Upload Gambar Produk</label>
+
+                <div id="productImageContainer">
+                    <div class="image-upload-group mb-3">
+                        <input type="file" name="photo_name[]" class="form-control mb-2" accept="image/*" required onchange="previewMultipleImages(this)">
+                    </div>
+                </div>
+                <div id="imagePreviewContainer" class="mt-3"></div>
+
+                <button type="button" class="btn btn-sm btn-success" onclick="addImageUploadField()">
+                    + Tambah Gambar
+                </button>
+                
+
             </div>
         </div>
+
 
         <!-- Special Options (Hot Deals, Featured, Special Offer) -->
         <div class="col-md-6 col-12">
@@ -206,3 +217,47 @@
         </button>
     </x-slot>
 </x-modal>
+<script>
+    function addImageUploadField() {
+        const container = document.getElementById('productImageContainer');
+        const group = document.createElement('div');
+        group.classList.add('image-upload-group', 'mb-3');
+
+group.innerHTML = `
+    <div class="row">
+        <div class="col-md-11 mb-2">
+            <input type="file" name="photo_name[]" class="form-control" accept="image/*" onchange="previewMultipleImages(this)" required>
+        </div>
+        <div class="col-md-1 mb-2">
+            <button type="button" class="btn btn-danger btn-sm" onclick="removeImageUploadField(this)">Hapus</button>
+        </div>
+    </div>
+`;
+
+
+        container.appendChild(group);
+    }
+
+    function removeImageUploadField(button) {
+        button.closest('.image-upload-group').remove();
+    }
+
+        function previewMultipleImages(input) {
+        const previewContainer = document.getElementById('imagePreviewContainer');
+        previewContainer.innerHTML = ""; // Kosongkan sebelum render ulang
+
+        if (input.files) {
+            Array.from(input.files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = document.createElement("img");
+                    img.setAttribute("src", e.target.result);
+                    img.setAttribute("style", "max-width: 150px; margin: 5px;");
+                    previewContainer.appendChild(img);
+                }
+                reader.readAsDataURL(file);
+            });
+        }
+    }
+</script>
+

@@ -23,6 +23,14 @@
                     <div class="col-md-12 col-sm-12 sign-in">
                         <h4 class="">Lupa Password</h4>
                         <p class="">Silahkan masukkan email anda</p>
+                        
+
+                    @if (session('status'))
+                        <div class="alert alert-success" id="status-alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
                         <form method="POST" action="{{ route('password.email') }}">
                             @csrf
                             <div class="form-group">
@@ -51,5 +59,21 @@
         <div style="margin-top: 220px">
 
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const alertBox = document.getElementById('status-alert');
+        if (alertBox) {
+            setTimeout(() => {
+                alertBox.style.transition = 'opacity 0.5s ease';
+                alertBox.style.opacity = '0';
+                setTimeout(() => {
+                    alertBox.remove();
+                }, 500); // tunggu sampai fade out selesai
+            }, 3000); // tunggu 3 detik
+        }
+    });
+</script>
+
 
 @endsection
