@@ -36,6 +36,13 @@
                             Bahan</span></a>
                 </li>
 
+                <li>
+                    <a href="{{ route('admin.jenissablon.index') }}" class="nav-link"><i
+                            class="fas fa-concierge-bell"></i><span>Jenis
+                            Sablon</span></a>
+                </li>
+
+
                 <li class="dropdown">
                     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                             class="fas fa-th-list"></i>

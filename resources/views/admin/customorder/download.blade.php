@@ -116,18 +116,19 @@
             <h2>viary store</h2>
             <div class="contact-info">
                 <p>Viary Store<br>
-                    Email: Via123@gmail.com<br>
+                    Email: viastores12@gmail.com<br>
                     Phone: 085701297321</p>
             </div>
         </div>
 
         <div class="details">
-            <p><strong>Name:</strong> {{ $customOrder->user->name }}<br>
+            <p><strong>Nama:</strong> {{ $customOrder->user->name }}<br>
                 <strong>Email:</strong> {{ $customOrder->user->email }}<br>
                 <strong>Phone:</strong> {{ $customOrder->user->numberphone }}<br>
-                <strong>Address:</strong> {{ $customOrder->address }}
+                <strong>Alamat Lengkap:</strong> {{ $customOrder->address }}
+                <strong>Kurir: </strong> {{ $customOrder->courir ?? '-' }}<br>
             </p>
-            <p><strong>Invoice #:</strong> <span style="color: #007bff;">{{ $customOrder->invoice_no }}</span><br>
+            {{-- <p><strong>Invoice #:</strong> <span style="color: #007bff;">{{ $customOrder->invoice_no }}</span><br> --}}
                 <strong>Order Date:</strong> {{ $customOrder->order_date }}<br>
                 <strong>Delivery Date:</strong> {{ $customOrder->completion_date }}<br>
                 <strong>Payment Type:</strong> {{ $customOrder->payment_type }}
@@ -138,11 +139,12 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Size</th>
+                    <th>Nama</th>
+                    <th>Ukuran</th>
                     <th>Bahan</th>
+                    <th>Jenis Sablon</th>
                     <th>Quantity</th>
-                    <th>Unit Price</th>
+                    <th>Harga</th>
                     <th>Total</th>
                 </tr>
             </thead>
@@ -151,6 +153,7 @@
                     <td>{{ $customOrder->name }}</td>
                     <td>{{ $customOrder->size }}</td>
                     <td>{{ $customOrder->fabric_type }}</td>
+                    <td>{{ $customOrder->jenis_sablon }}</td>
                     <td>{{ $customOrder->qty }}</td>
                     <td>Rp. {{ format_uang($customOrder->price) }}</td>
                     <td>Rp. {{ format_uang($customOrder->total_price) }}</td>
@@ -166,12 +169,12 @@
         </div>
 
         <div class="thanks">
-            <p>Thank you for your purchase!</p>
+            <p>Terima kasih telah membeli produk!</p>
         </div>
 
         <div class="signature">
             <p>-----------------------</p>
-            <h5>Authorized Signature</h5>
+            <h5>Viary Store</h5>
         </div>
     </div>
 </body>

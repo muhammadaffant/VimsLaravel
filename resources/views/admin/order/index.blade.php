@@ -10,15 +10,18 @@
                     <x-slot name="thead">
                         <th>No</th>
                         <th>Tanggal</th>
-                        <th>Invoice</th>
+                        {{-- <th>Invoice</th> --}}
                         <th>Kode Produk</th>
                         <th>Nama Produk</th>
                         <th>Size</th>
                         <th>Nama Lengkap</th>
                         <th>Email</th>
                         <th>Nomor Hp</th>
+                        <th>Alamat</th>
+                        <th>Kode Pos</th>
                         <th>Harga</th>
                         <th>Ongkir</th>
+                        <th>Kurir</th>
                         <th>Status Transaksi</th>
                         <th>Status Pesanan</th>
                         <th>Aksi</th>
@@ -55,9 +58,9 @@
                 {
                     data: 'order_date'
                 },
-                {
-                    data: 'invoice_no'
-                },
+                // {
+                //     data: 'invoice_no'
+                // },
                 {
                     data: 'product_code', // Path untuk mengambil product_name
                 },
@@ -76,11 +79,21 @@
                 {
                     data: 'phone'
                 },
+                { 
+                    data: 'alamat_lengkap'
+                },
+                {
+                    data: 'post_code',
+                },
+
                 {
                     data: 'harga', // Path untuk mengambil product_name
                 },
                 {
                     data: 'ongkir', // Path untuk mengambil product_name
+                },
+                {
+                    data: 'courir', // Path untuk mengambil product_name
                 },
                 {
                     data: 'status'

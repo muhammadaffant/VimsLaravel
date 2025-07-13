@@ -69,7 +69,7 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="post_code" class="info-title">Post Code</label>
+                                                        <label for="post_code" class="info-title">Kode Pos</label>
                                                         <input id="post_code" class="form-control unicase-form-control"
                                                             type="text" name="post_code" autocomplete="off"
                                                             placeholder="Input your post code" required>
@@ -130,7 +130,7 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="address" class="info-title">Alamat</label>
+                                                    <label for="address" class="info-title">Alamat lengkap</label>
                                                     <textarea name="address" id="address" cols="30" rows="3" class="form-control"></textarea>
                                                 </div>
 {{--

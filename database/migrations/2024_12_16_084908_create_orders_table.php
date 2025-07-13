@@ -18,9 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('regency_id');
             $table->unsignedBigInteger('district_id');
             $table->unsignedBigInteger('village_id');
-            $table->string('name');
-            $table->string('email');
-            $table->string('phone');
+            $table->string('name', 60);
+            $table->string('email', 30);
+            $table->string('phone', 16);
             $table->string('post_code');
             $table->text('notes')->nullable();
             $table->text('address')->nullable();

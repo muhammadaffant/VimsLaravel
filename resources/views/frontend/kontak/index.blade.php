@@ -62,7 +62,8 @@
     <!-- Google Maps -->
     <div class="mb-4">
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.5539808599647!2d109.13266897587636!3d-6.94378466797785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb929455ff0cf%3A0x2372db0a61f74d97!2sJl.%20Katesraya%20No.11%2C%20Kenjari%2C%20Tembok%20Banjaran%2C%20Kec.%20Adiwerna%2C%20Kabupaten%20Tegal%2C%20Jawa%20Tengah%2052194!5e0!3m2!1sid!2sid!4v1731558333433!5m2!1sid!2sid" 
+            {{-- src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.5539808599647!2d109.13266897587636!3d-6.94378466797785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb929455ff0cf%3A0x2372db0a61f74d97!2sJl.%20Katesraya%20No.11%2C%20Kenjari%2C%20Tembok%20Banjaran%2C%20Kec.%20Adiwerna%2C%20Kabupaten%20Tegal%2C%20Jawa%20Tengah%2052194!5e0!3m2!1sid!2sid!4v1731558333433!5m2!1sid!2sid"  --}}
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.5549563578015!2d109.13202227504392!3d-6.943668793056422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb9f502417ca3%3A0x7ce478a912c98b84!2sViary%20Store!5e0!3m2!1sid!2sid!4v1752065584508!5m2!1sid!2sid" 
             width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
     

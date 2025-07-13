@@ -15,26 +15,26 @@ class LayananSeeder extends Seeder
     {
         // Menambahkan dummy data menggunakan DB facade
         $layanans = [
+            // [
+            //     'nama_layanan' => 'Jahit Pakaian',
+            //     'deskripsi' => 'Layanan untuk menjahit pakaian sesuai dengan ukuran dan desain yang diinginkan.',
+            // ],
+            // [
+            //     'nama_layanan' => 'Pembuatan Seragam',
+            //     'deskripsi' => 'Layanan khusus untuk pembuatan seragam kantor, sekolah, atau komunitas.',
+            // ],
             [
-                'nama_layanan' => 'Jahit Pakaian',
-                'deskripsi' => 'Layanan untuk menjahit pakaian sesuai dengan ukuran dan desain yang diinginkan.',
-            ],
-            [
-                'nama_layanan' => 'Pembuatan Seragam',
-                'deskripsi' => 'Layanan khusus untuk pembuatan seragam kantor, sekolah, atau komunitas.',
-            ],
-            [
-                'nama_layanan' => 'Custom Desain',
+                'nama_layanan' => 'Custom Kaos',
                 'deskripsi' => 'Layanan untuk membuat pakaian dengan desain khusus sesuai permintaan pelanggan.',
             ],
-            [
-                'nama_layanan' => 'Perbaikan Pakaian',
-                'deskripsi' => 'Layanan perbaikan pakaian seperti menjahit sobekan, mengganti kancing, dan lainnya.',
-            ],
-            [
-                'nama_layanan' => 'Pembuatan Jaket',
-                'deskripsi' => 'Layanan pembuatan jaket untuk keperluan pribadi, komunitas, atau perusahaan.',
-            ],
+            // [
+            //     'nama_layanan' => 'Perbaikan Pakaian',
+            //     'deskripsi' => 'Layanan perbaikan pakaian seperti menjahit sobekan, mengganti kancing, dan lainnya.',
+            // ],
+            // [
+            //     'nama_layanan' => 'Pembuatan Jaket',
+            //     'deskripsi' => 'Layanan pembuatan jaket untuk keperluan pribadi, komunitas, atau perusahaan.',
+            // ],
         ];
 
         foreach ($layanans as $layanan) {

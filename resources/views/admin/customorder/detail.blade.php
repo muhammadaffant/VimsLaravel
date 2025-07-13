@@ -47,6 +47,23 @@
     <div class="row">
         <div class="col-md-6 col-12">
             <div class="form-group">
+                <label for="jenis_sablon">Jenis Sablon</label>
+                <input type="text" id="jenis_sablon" class="form-control" readonly>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-12">
+            <div class="form-group">
+                <label for="sablon_price">Harga Sablon</label>
+                <input type="text" id="sablon_price" class="form-control" readonly>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="form-group">
                 <label for="size">Ukuran Baju</label>
                 <textarea id="size" class="form-control" rows="2" readonly></textarea>
             </div>
@@ -106,6 +123,17 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12 col-12">
+            <div class="form-group">
+                <label for="courir">Kurir</label>
+                <input type="text" name="courir" id="courir" class="form-control" readonly>
+            </div>
+        </div>
+    </div>
+
+    
     <div class="row">
         <div class="col-md-12 col-12">
             <div class="form-group">

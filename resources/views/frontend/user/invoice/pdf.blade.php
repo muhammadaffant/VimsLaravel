@@ -65,11 +65,12 @@
         <tr>
             <td>
                 <p class="font" style="margin-left: 20px">
-                    <strong>Name: </strong> {{ $order->name }} <br>
+                    <strong>Nama: </strong> {{ $order->name }} <br>
                     <strong>Email: </strong> {{ $order->email }}<br>
                     <strong>Phone: </strong> {{ $order->phone }}<br>
-                    <strong>Address: </strong> {{ $order->address }}<br>
-                    <strong>Post Code: </strong> {{ $order->post_code }}<br>
+                    <strong>Alamat Lengkap: </strong> {{ $order->address }}<br>
+                    <strong>Kode Pos: </strong> {{ $order->post_code }}<br>
+                    <strong>Kurir: </strong> {{ $order->courir ?? '-' }}<br>
                 </p>
             </td>
             <td>
@@ -92,11 +93,11 @@
         <thead style="background-color: blue; color:#FFFFFF">
             <tr class="font">
                 <th>No</th>
-                <th>Product Name</th>
+                <th>Nama Produk</th>
                 <th>Size</th>
-                <th>Color</th>
-                <th>Quantity</th>
-                <th>Unit Price</th>
+                <th>Warna</th>
+                <th>Kuantitas</th>
+                <th>Harga Satuan</th>
                 <th>Total</th>
             </tr>
         </thead>
@@ -139,11 +140,11 @@
     </table>
 
     <div class="thanks mt-3">
-        <p>Thanks For Buying Product!</p>
+        <p>Terima kasih telah membeli produk</p>
     </div>
     <div class="authority float-right mt-3">
         <p>-----------------------</p>
-        <h5>Authority Signature:</h5>
+        <h5>Viarystore</h5>
     </div>
 
 

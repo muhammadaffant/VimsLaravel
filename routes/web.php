@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\{
     AdminCategoryController,
     AdminCustomOrderController,
     AdminDataUserController,
+    AdminJenisSablonController,
     AdminLayananController,
     AdminOngkirController,
     AdminOrderController,
@@ -92,6 +93,16 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
             // Route : Bahan
             Route::controller(AdminBahanController::class)->prefix('bahan')->as('bahan.')->group(function () {
+                Route::get('/data', 'data')->name('data');
+                Route::get('/', 'index')->name('index');
+                Route::post('/', 'store')->name('store');
+                Route::get('/{id}', 'show')->name('show');
+                Route::put('/{id}', 'update')->name('update');
+                Route::delete('/{id}', 'destroy')->name('destroy');
+            });
+
+            // Route : Jenis Sablon
+            Route::controller(AdminJenisSablonController::class)->prefix('jenissablon')->as('jenissablon.')->group(function () {
                 Route::get('/data', 'data')->name('data');
                 Route::get('/', 'index')->name('index');
                 Route::post('/', 'store')->name('store');

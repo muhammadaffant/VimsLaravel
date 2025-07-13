@@ -1,12 +1,12 @@
 <?php
-
-namespace App\Services\Brand;
+namespace App\Services\JenisSablon;
 
 use LaravelEasyRepository\ServiceApi;
-use App\Repositories\Brand\BrandRepository;
 use Illuminate\Support\Facades\Validator;
+use App\Repositories\JenisSablon\JenisSablonRepository;
 
-class BrandServiceImplement extends ServiceApi implements BrandService
+
+class JenisSablonServiceImplement extends ServiceApi implements JenisSablonService
 {
 
     /**
@@ -25,9 +25,9 @@ class BrandServiceImplement extends ServiceApi implements BrandService
      * don't change $this->mainRepository variable name
      * because used in extends service class
      */
-    protected BrandRepository $mainRepository;
+    protected JenisSablonRepository $mainRepository;
 
-    public function __construct(BrandRepository $mainRepository)
+    public function __construct(JenisSablonRepository $mainRepository)
     {
         $this->mainRepository = $mainRepository;
     }
@@ -40,8 +40,8 @@ class BrandServiceImplement extends ServiceApi implements BrandService
     public function store($data)
     {
         $validator = Validator::make($data, [
-            'brand_name' => 'required',
-            // 'brand_image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'nama_sablon' => 'required',
+            'harga' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -69,8 +69,8 @@ class BrandServiceImplement extends ServiceApi implements BrandService
     public function update($data, $id)
     {
         $validator = Validator::make($data, [
-            'brand_name' => 'required',
-            // 'brand_image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+            'nama_sablon' => 'required',
+            'harga' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -98,10 +98,5 @@ class BrandServiceImplement extends ServiceApi implements BrandService
             'status'  => 'success',
             'message' => 'Data berhasil dihapus.',
         ];
-    }
-
-    public function findById($id)
-    {
-        return $this->mainRepository->findById($id);
     }
 }

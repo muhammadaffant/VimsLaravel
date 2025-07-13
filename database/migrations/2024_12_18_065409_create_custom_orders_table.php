@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('custom_orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('name');
+            $table->string('name', 60);
             $table->string('file_design')->default('design.jpg');
             $table->text('design_description')->nullable();
             $table->text('fabric_type')->nullable(); // bahan
+            $table->text('sablon_price')->nullable(); // bahan
             $table->text('size')->nullable(); //ukuran baju
             $table->bigInteger('total_price')->default(0);
             $table->bigInteger('dp_paid')->default(0);

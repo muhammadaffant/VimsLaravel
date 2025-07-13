@@ -134,6 +134,16 @@
             </div>
         </div>
 
+                {{-- <div class="col-md-12 col-12">
+            <div class="form-group">
+                <label for="photo_name">Upload Gambar Produk</label>
+                <input type="file" class="form-control photo_name" name="photo_name[]" id="photo_name"
+                    accept="image/*" multiple onchange="previewMultipleImages(this)">
+                <br>
+                <div id="imagePreviewContainer"></div>
+            </div>
+        </div> --}}
+
         <!-- Upload Gambar Produk -->
         <div class="col-md-12 col-12">
             <div class="form-group">

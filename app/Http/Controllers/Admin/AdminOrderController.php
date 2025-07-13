@@ -45,12 +45,41 @@ class AdminOrderController extends Controller
 {
     $result = $this->orderService->getData();
 
-    $orders = Order::with('orderItems.product') // Eager load OrderItems and Product
+    $orders = Order::with('orderItems.product', 'province', 'regency', 'district', 'village') // Eager load OrderItems and Product
         ->success()
         ->get();
 
     return datatables($orders)
         ->addIndexColumn()
+        ->addColumn('order_date', function($order) {
+            // Jika kosong, tampilkan '-'
+            if (!$order->order_date) return '-';
+
+            // Coba parsing dan format ke tanggal Indonesia
+            try {
+                return Carbon::parse($order->order_date)->format('d-m-Y');
+            } catch (\Exception $e) {
+                return $order->order_date; // fallback jika format tidak bisa diparse
+            }
+        })
+
+        ->addColumn('alamat_lengkap', function ($order) {
+            return implode(', ', array_filter([
+                $order->address,
+                // optional($order->village)->name ?? 'Desa ID: ' . $order->village_id,
+                // optional($order->district)->name ?? 'Kec. ID: ' . $order->district_id,
+                // optional($order->regency)->name ?? 'Kab/Kota ID: ' . $order->regency_id,
+                // optional($order->province)->name ?? 'Prov. ID: ' . $order->province_id,
+            ]));
+        })
+
+
+
+        ->addColumn('post_code', function($order) {
+            return $order->post_code ?? '-';
+        })
+
+
         ->editColumn('status', fn($q) => $this->renderStatusColumns($q))
         ->editColumn('aksi', fn($q) => $this->renderActionButtons($q))
         ->addColumn('product_name', function($order) {
@@ -76,6 +105,10 @@ class AdminOrderController extends Controller
         })
         ->addColumn('ongkir', function($order) {
             return 'Rp. ' . format_uang($order->ongkir);
+        })
+
+        ->addColumn('courir', function($order) {
+            return $order->courir ?? '-';
         })
         ->escapeColumns([])
         ->make(true);

@@ -36,7 +36,7 @@
                                     <div id="owl-single-product">
                                         @foreach ($multiImg as $img)
                                             <div class="single-product-gallery-item" id="slide{{ $img->id }}">
-                                                <a data-lightbox="image-1" data-title="Gallery" href="#">
+                                                {{-- <a data-lightbox="image-1" data-title="Gallery" href="#"> --}}
                                                     <img class="img-responsive" alt=""
                                                         src="{{ Storage::url($img->photo_name) }}"
                                                         data-echo="{{ Storage::url($img->photo_name) }}" />

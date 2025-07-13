@@ -13,16 +13,17 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('username');
+            $table->string('name', 60); // batas maksimal 60 karakter
+            $table->string('email', 30)->unique(); // batas maksimal 30 karakter
+            $table->string('username', 60);
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password', 70);
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
+
     }
 
     /**

@@ -21,38 +21,38 @@ class BahanSeeder extends Seeder
                 'nama_bahan' => 'Poliester',
                 'keterangan' => 'Bahan sintetis yang tahan lama, tidak mudah kusut, dan cepat kering.',
             ],
-            [
-                'nama_bahan' => 'Denim',
-                'keterangan' => 'Bahan yang kuat dan sering digunakan untuk celana atau jaket.',
-            ],
-            [
-                'nama_bahan' => 'Linen',
-                'keterangan' => 'Bahan yang ringan, adem, dan cocok untuk pakaian musim panas.',
-            ],
-            [
-                'nama_bahan' => 'Spandex',
-                'keterangan' => 'Bahan elastis yang sering digunakan untuk pakaian olahraga atau ketat.',
-            ],
-            [
-                'nama_bahan' => 'Wol',
-                'keterangan' => 'Bahan yang hangat, cocok untuk pakaian musim dingin.',
-            ],
-            [
-                'nama_bahan' => 'Rayon',
-                'keterangan' => 'Bahan yang halus, nyaman, dan memiliki kilauan seperti sutra.',
-            ],
-            [
-                'nama_bahan' => 'Sifon',
-                'keterangan' => 'Bahan ringan, transparan, dan sering digunakan untuk pakaian formal.',
-            ],
-            [
-                'nama_bahan' => 'Satin',
-                'keterangan' => 'Bahan yang licin dan mengkilap, sering digunakan untuk pakaian pesta.',
-            ],
-            [
-                'nama_bahan' => 'Drill',
-                'keterangan' => 'Bahan yang kuat, tahan lama, dan sering digunakan untuk seragam.',
-            ],
+            // [
+            //     'nama_bahan' => 'Denim',
+            //     'keterangan' => 'Bahan yang kuat dan sering digunakan untuk celana atau jaket.',
+            // ],
+            // [
+            //     'nama_bahan' => 'Linen',
+            //     'keterangan' => 'Bahan yang ringan, adem, dan cocok untuk pakaian musim panas.',
+            // ],
+            // [
+            //     'nama_bahan' => 'Spandex',
+            //     'keterangan' => 'Bahan elastis yang sering digunakan untuk pakaian olahraga atau ketat.',
+            // ],
+            // [
+            //     'nama_bahan' => 'Wol',
+            //     'keterangan' => 'Bahan yang hangat, cocok untuk pakaian musim dingin.',
+            // ],
+            // [
+            //     'nama_bahan' => 'Rayon',
+            //     'keterangan' => 'Bahan yang halus, nyaman, dan memiliki kilauan seperti sutra.',
+            // ],
+            // [
+            //     'nama_bahan' => 'Sifon',
+            //     'keterangan' => 'Bahan ringan, transparan, dan sering digunakan untuk pakaian formal.',
+            // ],
+            // [
+            //     'nama_bahan' => 'Satin',
+            //     'keterangan' => 'Bahan yang licin dan mengkilap, sering digunakan untuk pakaian pesta.',
+            // ],
+            // [
+            //     'nama_bahan' => 'Drill',
+            //     'keterangan' => 'Bahan yang kuat, tahan lama, dan sering digunakan untuk seragam.',
+            // ],
         ];
 
         DB::table('bahans')->insert($bahanPakaian);

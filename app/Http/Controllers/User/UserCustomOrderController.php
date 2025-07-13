@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bahan;
+use App\Models\JenisSablon;
 use App\Models\CustomOrder;
 use App\Models\Ongkir;
 use Illuminate\Http\Request;
@@ -53,19 +54,26 @@ class UserCustomOrderController extends Controller
 
         // Ambil price bahan
         $bahan = Bahan::where('nama_bahan', $request->fabric_type)->first();
+        $jenissablon = JenisSablon::where('nama_sablon', $request->jenis_sablon)->first();
 
         // dd($request->all());
 
         // Hitung harga total berdasarkan jumlah dan harga per item
         // $pricePerItem = $request->qty * ;  //50000; // Contoh harga per item/bahan
-        $totalPrice = $bahan->price * $request->qty; //$request->qty * $pricePerItem;
+        // $totalPrice = $bahan->price * $request->qty; //$request->qty * $pricePerItem;
+        $hargaBahan = $bahan ? $bahan->price : 0;
+        $hargaSablon = $jenissablon ? $jenissablon->harga : 0;
+
+        $totalPrice = ($hargaBahan + $hargaSablon) * $request->qty;
 
         // Hitung pembayaran awal (DP) dan sisa pembayaran
         $dpPaid = 0; //$totalPrice * 0.5; // 50% dari total harga
 
 
         // Tambahkan data perhitungan ke dalam array data
-        $data['price'] = $bahan->price;
+        $data['price'] = $hargaBahan;
+        $data['sablon_price'] = $hargaSablon;
+        $data['jenis_sablon'] = $jenissablon->nama_sablon;
         $data['total_price'] = $totalPrice;
         $data['dp_paid'] = $dpPaid;
         $data['remaining_payment'] = $totalPrice + $request->courier;
@@ -76,6 +84,7 @@ class UserCustomOrderController extends Controller
         $data['district_id'] = 1;
         $data['village_id'] = 1;
         $data['ongkir'] = $request->courier;
+        $data['courir'] = $request->courier_service;
         $data['position'] = $request->position;
         $data['order_date'] = now();
         $data['completion_date'] = now()->addWeeks(1); // Estimasi 2 minggu selesai

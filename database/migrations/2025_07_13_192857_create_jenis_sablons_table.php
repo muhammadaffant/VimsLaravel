@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('brands', function (Blueprint $table) {
+        Schema::create('jenis_sablons', function (Blueprint $table) {
             $table->id();
-            $table->string('brand_name');
-            $table->string('brand_slug');
-            // $table->string('brand_image')->default('brand.jpg');
+            $table->string('nama_sablon');
+            $table->integer('harga');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('brands');
+        Schema::dropIfExists('jenis_sablons');
     }
 };

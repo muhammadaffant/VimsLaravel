@@ -13,6 +13,8 @@
                         <th>Nama Lengkap</th>
                         <th>Nomor Hp</th>
                         <th>Bahan Kain</th>
+                        <th>Jenis Sablon</th>
+                        <th>Harga Sablon</th>
                         <th>Size</th>
                         <th>Jumlah</th>
                         <th>Harga</th>
@@ -66,6 +68,12 @@
                 },
                 {
                     data: 'fabric_type'
+                },
+                {
+                    data: 'jenis_sablon' // ini harus sesuai dengan nama kolom di datatables backend
+                },
+                {
+                    data: 'sablon_price' // ini harus sesuai dengan nama kolom di datatables backend
                 },
                 {
                     data: 'size'
@@ -156,6 +164,8 @@
                     $('#file_design').val(response.data.file_design);
                     $('#design_description').val(response.data.design_description);
                     $('#fabric_type').val(response.data.fabric_type);
+                    $('#jenis_sablon').val(response.data.jenis_sablon);
+                    $('#sablon_price').val(response.data.sablon_price);
                     $('[name=address]').val(response.data.address);
                     $('#size').val(response.data.size);
                     $('#total_price').val(response.data.total_price);

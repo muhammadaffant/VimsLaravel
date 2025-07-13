@@ -83,8 +83,7 @@
 
                                                             <!-- Design Description Input -->
                                                             <div class="form-group">
-                                                                <label for="design_description" class="info-title">Design
-                                                                    Description</label>
+                                                                <label for="design_description" class="info-title">Deskripsi design</label>
                                                                 <textarea id="design_description" name="design_description" cols="30" rows="5" class="form-control"
                                                                     placeholder="Describe your design" required></textarea>
                                                             </div>
@@ -97,8 +96,7 @@
 
                                                             <!-- Fabric Type Input -->
                                                             <div class="form-group">
-                                                                <label for="fabric_type" class="info-title">Fabric
-                                                                    Type</label>
+                                                                <label for="fabric_type" class="info-title">Tipe Bahan</label>
                                                                 <select name="fabric_type" id=""
                                                                     class="form-control" onchange="updateHiddenInput()">
                                                                     <option disabled selected>Pilih Bahan</option>
@@ -106,6 +104,22 @@
                                                                         <option value="{{ $bahan->nama_bahan }}">
                                                                             {{ $bahan->nama_bahan }} -
                                                                             {{ $bahan->price }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                            @php
+
+                                                                $jenis_sablons = App\Models\JenisSablon::all();
+                                                            @endphp
+                                                            <div class="form-group">
+                                                                <label for="jenis_sablon" class="info-title">Jenis Sablon</label>
+                                                                <select name="jenis_sablon" id=""
+                                                                    class="form-control" onchange="updateHiddenInput()">
+                                                                    <option disabled selected>Pilih Jenis Sablon</option>
+                                                                    @foreach ($jenis_sablons as $sablon)
+                                                                        <option value="{{ $sablon->nama_sablon }}">
+                                                                            {{ $sablon->nama_sablon }} -
+                                                                            {{ $sablon->harga }}</option>
                                                                     @endforeach
                                                                 </select>
                                                             </div>

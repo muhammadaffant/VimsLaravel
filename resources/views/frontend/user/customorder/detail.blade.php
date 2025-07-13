@@ -25,8 +25,10 @@
                                     <th>Total</th>
                                     <th>Deskripsi</th>
                                     <th>Size</th>
-                                    <th>Price</th>
+                                    <th>Harga Sablon</th>
+                                    <th>Harga</th>
                                     <th>Ongkir</th>
+                                    <th>Kurir</th>
                                     <th>Subtotal</th>
                                     @if ($customOrder->status == 'Progress')
                                         <th>Action</th>
@@ -41,8 +43,10 @@
                                     <td>{{ $customOrder->total_price }}</td>
                                     <td>{{ $customOrder->design_description }}</td>
                                     <td>{{ $customOrder->size }}</td>
+                                    <td>{{ $customOrder->sablon_price }}</td>
                                     <td>{{ $customOrder->price }}</td>
                                     <td>{{ $customOrder->ongkir }}</td>
+                                    <td>{{ $customOrder->courir ?? '-' }}</td>
                                     <td>{{ $customOrder->remaining_payment }}</td>
                                     @if ($customOrder->status == 'Success')
                                     <td>

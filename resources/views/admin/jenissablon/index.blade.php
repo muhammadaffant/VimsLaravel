@@ -1,29 +1,28 @@
 @extends('layouts.stisla')
 
-@section('title', 'Brands')
+@section('title', 'Daftar Jenis Sablon')
 
 @section('content')
     <div class="row">
         <div class="col-12">
             <x-card>
                 <x-slot name="header">
-                    <button onclick="addForm(`{{ route('admin.brands.store') }}`)" class="btn btn-sm btn-primary"><i
-                            class="fas fa-plus-circle"></i> Tambah
-                        Data</button>
+                    <button onclick="addForm(`{{ route('admin.jenissablon.store') }}`)" class="btn btn-sm btn-primary">
+                        <i class="fas fa-plus-circle"></i> Tambah Data
+                    </button>
                 </x-slot>
                 <x-table>
                     <x-slot name="thead">
                         <th>No</th>
-                        {{-- <th>Gambar</th> --}}
-                        <th>Nama Brand</th>
-                        <th>slug</th>
+                        <th>Nama Sablon</th>
+                        <th>Harga</th>
                         <th>Aksi</th>
                     </x-slot>
                 </x-table>
             </x-card>
         </div>
     </div>
-    @include('admin.brand.form')
+    @include('admin.jenissablon.form')
 @endsection
 
 @include('includes.datatables')
@@ -40,58 +39,39 @@
             autoWidth: false,
             responsive: true,
             ajax: {
-                url: '{{ route('admin.brands.data') }}'
+                url: '{{ route('admin.jenissablon.data') }}'
             },
-            columns: [{
-                    data: 'DT_RowIndex',
-                    name: 'DT_RowIndex',
-                    orderable: false,
-                    searchable: false
-                },
-                // {
-                //     data: 'brand_image'
-                // },
-                {
-                    data: 'brand_name'
-                },
-                {
-                    data: 'brand_slug'
-                },
-                {
-                    data: 'aksi',
-                    name: 'aksi',
-                    orderable: false,
-                    searchable: false
-                },
+            columns: [
+                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                { data: 'nama_sablon' },
+                { data: 'harga' },
+                { data: 'aksi', name: 'aksi', orderable: false, searchable: false },
             ]
         });
 
-        // fungsi tambah data baru
-        function addForm(url, title = 'Tambah Data Brand') {
+        function addForm(url, title = 'Tambah Jenis Sablon') {
             $(modal).modal('show');
             $(`${modal} .modal-title`).text(title);
             $(`${modal} form`).attr('action', url);
             $(`${modal} [name=_method]`).val('post');
-            // Hide the filename display
             resetForm(`${modal} form`);
         }
 
-        // fungsi edit data
-        function editForm(url, title = 'Edit Data Brand') {
-            $.get(url) // Perform a GET request to the specified URL
+        function editForm(url, title = 'Edit Jenis Sablon') {
+            $.get(url)
                 .done(response => {
-                    $(modal).modal('show'); // Show the modal
-                    $(`${modal} .modal-title`).text(title); // Set the modal title
-                    $(`${modal} form`).attr('action', url); // Set the form action to the URL
-                    $(`${modal} [name=_method]`).val('put'); // Set the HTTP method to PUT
+                    $(modal).modal('show');
+                    $(`${modal} .modal-title`).text(title);
+                    $(`${modal} form`).attr('action', url);
+                    $(`${modal} [name=_method]`).val('put');
 
-                    resetForm(`${modal} form`); // Reset the form fields
-                    loopForm(response.data); // Populate the form fields with the response data
+                    resetForm(`${modal} form`);
+                    loopForm(response.data);
                 })
-                .fail(errors => { // Handle any errors from the GET request
-                    $('#spinner-border').hide(); // Hide the spinner
-                    $(button).prop('disabled', false); // Enable the button
-                    Swal.fire({ // Show an error message
+                .fail(errors => {
+                    $('#spinner-border').hide();
+                    $(button).prop('disabled', false);
+                    Swal.fire({
                         icon: 'error',
                         title: 'Oops! Gagal',
                         text: errors.responseJSON.message,
@@ -100,12 +80,11 @@
                     if (errors.status == 422) {
                         $('#spinner-border').hide();
                         $(button).prop('disabled', false);
-                        loopErrors(errors.responseJSON.errors); // Handle validation errors
+                        loopErrors(errors.responseJSON.errors);
                     }
                 });
         }
 
-        // fungsi delete data
         function deleteData(url, name) {
             Swal.fire({
                 title: 'Hapus Data!',
@@ -127,7 +106,7 @@
                                 timer: 2000,
                                 showConfirmButton: false,
                             });
-                            table.ajax.reload(); // Refresh tabel
+                            table.ajax.reload();
                         },
                         error: function(xhr) {
                             Swal.fire({
@@ -141,9 +120,8 @@
             });
         }
 
-        // fungsi kirim data inputan
         function submitForm(originalForm) {
-            const submitBtn = $('#submitBtn'); // Reference to the button
+            const submitBtn = $('#submitBtn');
             $(button).prop('disabled', true);
             $('#spinner-border').show();
             submitBtn.addClass('btn-progress');

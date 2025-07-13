@@ -3,17 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Services\Brand\BrandService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Services\JenisSablon\JenisSablonService;
 
-class AdminBrandController extends Controller
+class AdminJenisSablonController extends Controller
 {
-    private $brandService;
+   private $jenissablonService;
 
-    public function __construct(BrandService $brandService)
+    public function __construct(JenisSablonService $jenissablonService)
     {
-        $this->brandService = $brandService;
+        $this->jenissablonService = $jenissablonService;
     }
 
     /**
@@ -21,18 +20,17 @@ class AdminBrandController extends Controller
      */
     public function index()
     {
-        return view('admin.brand.index',[
-            'title' => 'Data Brand'
+        return view('admin.jenissablon.index',[
+            'title' => 'Data Sablon'
         ]);
     }
 
     public function data()
     {
-        $result = $this->brandService->getData();
+        $result = $this->jenissablonService->getData();
 
         return datatables($result)
             ->addIndexColumn()
-            // ->editColumn('brand_image', fn($q) => $this->renderImageColumn($q))
             ->editColumn('aksi', fn($q) => $this->renderActionButtons($q))
             ->escapeColumns([])
             ->make(true);
@@ -43,7 +41,7 @@ class AdminBrandController extends Controller
      */
     public function store(Request $request)
     {
-        $result = $this->brandService->store($request->all());
+        $result = $this->jenissablonService->store($request->all());
 
         if ($result['status'] === 'success') {
             return response()->json([
@@ -64,7 +62,7 @@ class AdminBrandController extends Controller
      */
     public function show($id)
     {
-        $result = $this->brandService->show($id);
+        $result = $this->jenissablonService->show($id);
         return response()->json(['data' => $result]);
     }
 
@@ -73,7 +71,7 @@ class AdminBrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $result = $this->brandService->update($request->all(), $id);
+        $result = $this->jenissablonService->update($request->all(), $id);
 
         if ($result['status'] === 'success') {
             return response()->json([
@@ -94,42 +92,21 @@ class AdminBrandController extends Controller
      */
     public function destroy($id)
     {
-        $result = $this->brandService->destroy($id);
+        $result = $this->jenissablonService->destroy($id);
 
         return response()->json([
             'message' => $result['message'],
         ]);
     }
 
-    public function brandSearch(Request $request)
-    {
-        $query = $request->input('brand_id');
-        $result = $this->brandService->findById($query);
-
-        return response()->json($result);
-    }
-
     /**
-     * Render action buttons for DataTables.
+     * Render aksi buttons
      */
     protected function renderActionButtons($q)
     {
         return '
-                <button onclick="editForm(`' . route('admin.brands.show', $q->id) . '`)" class="btn btn-xs btn-primary mr-1"><i class="fas fa-pencil-alt"></i></button>
-                <button onclick="deleteData(`' . route('admin.brands.destroy', $q->id) . '`, `' . $q->brand_name . '`)" class="btn btn-xs btn-danger mr-1"><i class="fas fa-trash-alt"></i></button>
-        ';
-    }
-
-    /**
-     * Render image column for DataTables.
-     */
-    protected function renderImageColumn($q)
-    {
-        if ($q->brand_image) {
-            $imageUrl = Storage::url($q->brand_image);
-            return '<img src="' . $imageUrl . '" class="img-thumbnail" style="max-width: 100px;">';
-        }
-
-        return '<span class="text-muted">Tidak ada gambar</span>';
+                <button onclick="editForm(`' . route('admin.jenissablon.show', $q->id) . '`)" class="btn btn-xs btn-primary mr-1"><i class="fas fa-pencil-alt"></i></button>
+                <button onclick="deleteData(`' . route('admin.jenissablon.destroy', $q->id) . '`, `' . $q->nama_sablon . '`)" class="btn btn-xs btn-danger mr-1"><i class="fas fa-trash-alt"></i></button>
+            ';
     }
 }
